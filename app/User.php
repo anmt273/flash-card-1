@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public funtion rememberword(){
+        return $this->hasMany('App\RememberWord','user_id','id');
+    }
+    public funtion course(){
+        return $this->hasMany('App\Course','user_id','id');
+    }
+    
 }

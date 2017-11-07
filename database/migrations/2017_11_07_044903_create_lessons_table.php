@@ -15,11 +15,12 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('course_id');
-            $table->string('desc');
-            $table->string('img');
-            $table->string('word_quantity');
+            $table->string('slug',50);
+            $table->string('name',50);
+            $table->string('course_id',30);
+            $table->string('desc',500);
+            $table->string('img',50);
+            $table->integer('word_quantity')->default(0);
             $table->timestamps();
         });
     }
