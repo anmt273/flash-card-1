@@ -11,5 +11,7 @@ namespace App\Http\Controllers\Admin;
 
 class HomeController extends AdminBaseController
 {
-
+    public function index(){
+        return $this->render('admin.index');
+    }
 }

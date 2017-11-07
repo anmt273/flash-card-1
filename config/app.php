@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laracasts\Flash\FlashServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
         //
 
