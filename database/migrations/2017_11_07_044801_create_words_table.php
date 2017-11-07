@@ -15,14 +15,14 @@ class CreateWordsTable extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_lesson');
-            $table->string('word');
-            $table->string('mean');
-            $table->string('example');
-            $table->string('example_mean');
-            $table->string('phonetic');
-            $table->string('desc');
-            $table->string('img');
+            $table->string('id_lesson',30);
+            $table->string('word',30);
+            $table->string('mean',100);
+            $table->string('example',500);
+            $table->string('example_mean',500);
+            $table->string('phonetic',50);
+            $table->string('desc',500);
+            $table->string('img',50);
             $table->timestamps();
         });
     }

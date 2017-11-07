@@ -15,10 +15,10 @@ class CreateRememberWordTable extends Migration
     {
         Schema::create('remember_words', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('word_id');
-            $table->string('lesson_id');
-            $table->string('status');
+            $table->string('user_id',30);
+            $table->string('word_id',30);
+            $table->string('lesson_id',30);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
