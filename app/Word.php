@@ -10,4 +10,7 @@ class Word extends Model
     public funtion lesson(){
     	return $this->belongsTo('App\Lesson','id_lesson','id');
     }
+    public funtion rememberword(){
+        return $this->hasMany('App\RememberWord','word_id','id');
+    }
 }
