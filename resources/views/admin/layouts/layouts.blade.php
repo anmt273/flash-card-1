@@ -27,7 +27,7 @@
     </style>
     <link rel="stylesheet" href="{!! url('/themes/admin/lib/jquery-ui/jquery-ui.css') !!}">
     <link rel="stylesheet" href="{!! url('/themes/admin/css/quirk.css') !!}">
-    {{--<link rel="stylesheet" href="{!! url('/themes/admin/css/style.css') !!}">
+    <link rel="stylesheet" href="{{ url('/themes/admin/css/style.css') }}">
     <link rel="stylesheet" href="{!! url('/themes/admin/css/my-style.css') !!}">--}}
 
     @yield('css')
@@ -100,7 +100,7 @@
 
 <script src="{{url('/themes/admin/lib/jquery-ui/jquery-ui.js')}}"></script>
 <script src="{{url('/themes/admin/lib/bootstrap/js/bootstrap.js')}}"></script>
-<script src="{{url('/themes/admin/lib/jquery-toggles/toggles.js')}}"></script>
+{{--<script src="{{url('/themes/admin/lib/jquery-toggles/toggles.js')}}"></script>--}}
 <script src="{{url('/themes/admin/lib/datatables/jquery.dataTables.js')}}"></script>
 {{--<script src="{{url('/themes/js/momentjs/moment.min.js')}}"></script>--}}
 <script src="{{url('/themes/admin/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js')}}"></script>
@@ -108,7 +108,7 @@
 <script src="{{url('/themes/admin/js/quirk.js')}}"></script>
 {{--<script src="{{url('/themes/admin/js/form.multi-langs.js')}}"></script>--}}
 {{--<script src="{{url('/js/common.js')}}"></script>--}}
-{{--<script src="{{url('/libs/jstz/jstz.min.js')}}"></script>--}}
+<script src="{{url('/libs/jstz/jstz.min.js')}}"></script>
 
 <script>
     $(".select5").select2({minimumResultsForSearch: Infinity});

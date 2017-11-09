@@ -33,7 +33,7 @@
                                     <td>{{$index + 1}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->role_id}}</td>
+                                    <td>{{\Spatie\Permission\Models\Role::find($user->role_id)->name}}</td>
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->created_at}}</td>
                                     <td>{{$user->updated_at}}</td>
