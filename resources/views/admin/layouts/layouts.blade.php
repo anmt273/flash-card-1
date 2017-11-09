@@ -9,8 +9,8 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="{{url('/themes/libs/font-awesome-4.7.0/css/font-awesome.css')}}">
-    <link rel="stylesheet" href="{{url('/themes/admin/lib/weather-icons/css/weather-icons.css')}}">
-    <link rel="stylesheet" href="{{url('/themes/admin/lib/jquery-toggles/toggles-full.css')}}">
+    {{--<link rel="stylesheet" href="{{url('/themes/admin/lib/weather-icons/css/weather-icons.css')}}">
+    <link rel="stylesheet" href="{{url('/themes/admin/lib/jquery-toggles/toggles-full.css')}}">--}}
     <link rel="stylesheet"
           href="{{url('/themes/admin/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}">
     <link rel="stylesheet" href="{{url('/themes/admin/lib/select2/select2.css')}}">
@@ -27,15 +27,15 @@
     </style>
     <link rel="stylesheet" href="{!! url('/themes/admin/lib/jquery-ui/jquery-ui.css') !!}">
     <link rel="stylesheet" href="{!! url('/themes/admin/css/quirk.css') !!}">
-    <link rel="stylesheet" href="{!! url('/themes/admin/css/style.css') !!}">
-    <link rel="stylesheet" href="{!! url('/themes/admin/css/my-style.css') !!}">
+    {{--<link rel="stylesheet" href="{!! url('/themes/admin/css/style.css') !!}">
+    <link rel="stylesheet" href="{!! url('/themes/admin/css/my-style.css') !!}">--}}
 
     @yield('css')
 
-    <script src="/themes/admin/lib/modernizr/modernizr.js"></script>
+    {{--<script src="/themes/admin/lib/modernizr/modernizr.js"></script>
     <script src="../lib/html5shiv/html5shiv.js"></script>
-    <script src="../lib/respond/respond.src.js"></script>
-    <script src="{{url('/themes/admin/lib/jquery/jquery.js')}}"></script>
+    <script src="../lib/respond/respond.src.js"></script>--}}
+    <script src="{{url('/themes/admin/js/jquery-3.2.1.min.js')}}"></script>
     <![endif]-->
 </head>
 
@@ -102,13 +102,13 @@
 <script src="{{url('/themes/admin/lib/bootstrap/js/bootstrap.js')}}"></script>
 <script src="{{url('/themes/admin/lib/jquery-toggles/toggles.js')}}"></script>
 <script src="{{url('/themes/admin/lib/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{url('/themes/js/momentjs/moment.min.js')}}"></script>
+{{--<script src="{{url('/themes/js/momentjs/moment.min.js')}}"></script>--}}
 <script src="{{url('/themes/admin/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js')}}"></script>
 <script src="{{url('/themes/admin/lib/select2/select2.js')}}"></script>
 <script src="{{url('/themes/admin/js/quirk.js')}}"></script>
-<script src="{{url('/themes/admin/js/form.multi-langs.js')}}"></script>
-<script src="{{url('/js/common.js')}}"></script>
-<script src="{{url('/libs/jstz/jstz.min.js')}}"></script>
+{{--<script src="{{url('/themes/admin/js/form.multi-langs.js')}}"></script>--}}
+{{--<script src="{{url('/js/common.js')}}"></script>--}}
+{{--<script src="{{url('/libs/jstz/jstz.min.js')}}"></script>--}}
 
 <script>
     $(".select5").select2({minimumResultsForSearch: Infinity});

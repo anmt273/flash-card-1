@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
     /*
      * Middleware CheckPermission
      * */
-    Route::group(['middleware' => 'permission'],function (){
+    Route::group([/*'middleware' => 'permission'*/],function (){
         Route::get('/', [
             'as' => 'admin.index',
             'uses' => 'HomeController@index'
@@ -34,7 +34,17 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
             'as' => 'admin.logout'
         ]);
 
+        //User
         Route::group(['prefix' => 'user'], function () {
+            Route::get('/list', 'UserController@listUser')->name('admin.user.list');
+            Route::group([],function (){
+                Route::any('add', 'UserController@add')->name('admin.user.add');
+                Route::any('edit', 'UserController@edit')->name('admin.user.edit');
+                Route::get('status', 'UserController@changeStatus')->name('admin.user.status');
+                Route::get('delete', 'UserController@delete')->name('admin.user.delete');
+                /*Route::post('change-vip', 'UserController@changeVip')->name('admin.user.change-vip');*/
+                /*Route::any('check-vip', 'UserController@checkVip')->name('admin.user.check-vip');*/
+            });
 
         });
 
@@ -59,19 +69,6 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
             Route::any('add_permission_for_role','RoleAndPermissionController@addPermissionForRole')->name('admin.add-permission-for-role');
         });
 
-        //User
-        Route::group(['prefix' => 'user'], function () {
-            Route::get('/list', 'UserController@listUser')->name('admin.user.list');
-            Route::group([],function (){
-                Route::any('add', 'UserController@add')->name('admin.user.add');
-                Route::any('edit', 'UserController@edit')->name('admin.user.edit');
-                Route::get('status', 'UserController@changeStatus')->name('admin.user.status');
-                Route::get('delete', 'UserController@delete')->name('admin.user.delete');
-                /*Route::post('change-vip', 'UserController@changeVip')->name('admin.user.change-vip');*/
-                /*Route::any('check-vip', 'UserController@checkVip')->name('admin.user.check-vip');*/
-            });
-
-        });
     });
 
 

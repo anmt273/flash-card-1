@@ -18,10 +18,10 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Vị trí</th>
+                            <th>Phone</th>
+                            <th>Created_at</th>
+                            <th>Updated_at</th>
                             <th>Status</th>
-                            {{--<th>Vip</th>--}}
-                            <th>Quê</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -34,7 +34,9 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->role_id}}</td>
-                                    <td>{{$user->position}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->created_at}}</td>
+                                    <td>{{$user->updated_at}}</td>
                                     <td>
                                         @if($user->status)
                                             <a href="{{route('admin.user.status', ['status' => 0, 'id' => $user->id])}}"
@@ -44,7 +46,6 @@
                                                class="label label-warning">{{trans('Disabled')}}</a>
                                         @endif
                                     </td>
-                                    <td>{{$user->home_town}}</td>
                                     <td>
                                         <ul class="table-options">
                                             <li><a href="{{route('admin.user.edit', ['id' => $user->id])}}"><i
