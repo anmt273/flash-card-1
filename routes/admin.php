@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
     /*
      * Middleware CheckPermission
      * */
-    Route::group([/*'middleware' => 'permission'*/],function (){
+    Route::group(['middleware' => 'permission'],function (){
         Route::get('/', [
             'as' => 'admin.index',
             'uses' => 'HomeController@index'
