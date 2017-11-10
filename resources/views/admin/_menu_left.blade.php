@@ -25,6 +25,17 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-parent active">
+                        <a href="#"><i class="fa fa-sitemap"></i> <span>Courses</span></a>
+                        <ul class="children">
+                            <li class="active">
+                                <a href="{{route('admin.course.list')}}">{{trans('List')}}</a>
+                            </li>
+                            <li class="active">
+                                <a href="{{route('admin.course.add')}}">{{trans('Add course')}}</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div><!-- tab-pane -->
         </div><!-- tab-content -->

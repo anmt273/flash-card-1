@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
     /*
      * Middleware CheckPermission
      * */
-    Route::group(['middleware' => 'permission'],function (){
+    Route::group([/*'middleware' => 'permission'*/],function (){
         Route::get('/', [
             'as' => 'admin.index',
             'uses' => 'HomeController@index'
@@ -67,6 +67,14 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
             });
             //add permission for role
             Route::any('add_permission_for_role','RoleAndPermissionController@addPermissionForRole')->name('admin.add-permission-for-role');
+        });
+
+        //Course
+        Route::group(['prefix' => 'course'],function (){
+            Route::get('','CourseController@index')->name('admin.course.list');
+            Route::any('/add','CourseController@add')->name('admin.course.add');
+            Route::any('/edit','CourseController@edit')->name('admin.course.edit');
+            Route::post('/delete','CourseController@delete')->name('admin.course.delete');
         });
 
     });
