@@ -6,11 +6,13 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use Sluggable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -49,10 +51,12 @@ class User extends Authenticatable
     public static function loginHash($email, $password)
     {
 
-        return Auth::attempt(array('email' => $email, 'password' => '202cb962ac59075b964b07152d234b70'));
         if (Auth::attempt(array('email' => $email, 'password' => $password))){
             $user = Auth::user();
-            if ($user->status && $user->email_verified) {
+            Auth::login($user);
+            @session_start();
+            return true;
+            /*if ($user->status && $user->email_verified) {
                 Auth::login($user);
                 @session_start();
 
@@ -65,7 +69,7 @@ class User extends Authenticatable
                 dflash(__('Your account was disabled.'), 'danger', false);
 
                 return false;
-            }
+            }*/
         } else {
             dflash(__('Email or password is wrong, please try again'), 'danger');
 

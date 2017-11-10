@@ -10,6 +10,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 use Validator;
 
 class UserController extends AdminBaseController
@@ -48,12 +50,13 @@ class UserController extends AdminBaseController
             $user = new User();
             $user->name = $request->get('name');
             $user->email = $request->get('email');
-            $user->password = $request->get('password');
+            $user->password = Hash::make($request->get('password'));
             $user->birthday = $request->get('birthday');
             $user->phone = $request->get('phone');
             $user->role_id = $request->get('role_id');
 
             $user->save();
+            $user->assignRole(Role::find($request->get('role_id'))->name);
 
             return redirect()->route('admin.user.list');
 
@@ -91,12 +94,13 @@ class UserController extends AdminBaseController
                 }
                 $user->name = $request->get('name');
                 $user->email = $request->get('email');
-                $user->password = $request->get('password');
+                $user->password = Hash::make($request->get('password'));
                 $user->birthday = $request->get('birthday');
                 $user->phone = $request->get('phone');
                 $user->role_id = $request->get('role_id');
-
                 $user->save();
+                $user->removeRole(Role::all());
+                $user->assignRole(Role::find($request->get('role_id'))->name);
 
                 dflash('Insert success','success');
                 return redirect()->route('admin.user.list');

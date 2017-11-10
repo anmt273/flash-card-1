@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends AdminBaseController
 {
@@ -19,9 +20,8 @@ class AuthController extends AdminBaseController
     public function loginHandle(Request $request){
         $email = $request->get('email');
         $password = $request->get('password');
-        dd(User::loginHash($email, $password));
-        dd($email.'/'.$password);
         if (User::loginHash($email, $password)) {
+
             return redirect()->route('admin.index');
         }
 
@@ -30,7 +30,7 @@ class AuthController extends AdminBaseController
     public function logout()
     {
         User::logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login-view');
     }
 
 }
