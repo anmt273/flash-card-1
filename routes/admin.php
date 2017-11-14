@@ -24,7 +24,7 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
     /*
      * Middleware CheckPermission
      * */
-    Route::group([/*'middleware' => 'permission'*/],function (){
+    Route::group(['middleware' => 'permission'],function (){
         Route::get('/', [
             'as' => 'admin.index',
             'uses' => 'HomeController@index'
@@ -77,7 +77,26 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
             Route::post('/delete','CourseController@delete')->name('admin.course.delete');
         });
 
+        //Lesson
+        Route::group(['prefix' => 'lesson'],function (){
+            Route::get('','LessonController@index')->name('admin.lesson.list');
+            Route::post('/add','LessonController@add')->name('admin.lesson.add');
+            Route::any('/edit','LessonController@edit')->name('admin.lesson.edit');
+            Route::get('/delete','LessonController@delete')->name('admin.lesson.delete');
+
+        });
+
+        //word
+        Route::group(['prefix' => 'word'],function (){
+            Route::any('/add','WordController@add')->name('admin.word.add');
+            Route::any('/edit','WordController@edit')->name('admin.word.edit');
+            Route::post('/delete','WordController@delete')->name('admin.word.delete');
+        });
+
     });
 
 
+    Route::group(['prefix' => 'ajax'],function (){
+        Route::get('/ajax-get-words','WordController@ajaxGetWords')->name('admin.word.ajax-get-words');
+    });
 });

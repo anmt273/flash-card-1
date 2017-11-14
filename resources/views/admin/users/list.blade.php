@@ -7,7 +7,9 @@
         </div>
         <div class="row panel-heading panel-heading-actions">
             <div class="row panel-heading panel-heading-actions">
-
+                <a href="{{route('admin.user.add')}}">
+                    <div class="btn btn-primary pull-right">{{trans('Add User')}}</div>
+                </a>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">

@@ -7,7 +7,7 @@
         </div>
         <div class="row panel-heading panel-heading-actions">
             <div class="row panel-heading panel-heading-actions">
-
+                <div class="btn btn-primary pull-right" data-toggle="modal" data-target="#popup_add_course">{{trans('Add Course')}}</div>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -41,7 +41,11 @@
                                             <input type="checkbox" {{$course->share?'checked':''}}><span></span>
                                         </label>
                                     </td>
-                                    <td>{{$course->lesson_quantity}}</td>
+                                    <td>
+                                        <a href="{{route('admin.lesson.list',['course_id' => $course->id])}}">
+                                            {{$course->lesson_quantity}} Edit
+                                        </a>
+                                    </td>
                                     <td>{{$course->word_quantity}}</td>
                                     <td>{{$course->view_quantity}}</td>
                                     <td>{{$course->share}}</td>
@@ -67,4 +71,5 @@
             </div>
         </div><!-- panel -->
     </div>
+    @include('admin.courses.popup_add_course')
 @endsection

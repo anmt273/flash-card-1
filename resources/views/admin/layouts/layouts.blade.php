@@ -9,8 +9,8 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="{{url('/themes/libs/font-awesome-4.7.0/css/font-awesome.css')}}">
-    {{--<link rel="stylesheet" href="{{url('/themes/admin/lib/weather-icons/css/weather-icons.css')}}">
-    <link rel="stylesheet" href="{{url('/themes/admin/lib/jquery-toggles/toggles-full.css')}}">--}}
+    {{--<link rel="stylesheet" href="{{url('/themes/admin/lib/weather-icons/css/weather-icons.css')}}">--}}
+    <link rel="stylesheet" href="{{url('/themes/admin/lib/jquery-toggles/toggles-full.css')}}">
     <link rel="stylesheet"
           href="{{url('/themes/admin/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}">
     <link rel="stylesheet" href="{{url('/themes/admin/lib/select2/select2.css')}}">
@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="{!! url('/themes/admin/lib/jquery-ui/jquery-ui.css') !!}">
     <link rel="stylesheet" href="{!! url('/themes/admin/css/quirk.css') !!}">
     <link rel="stylesheet" href="{{ url('/themes/admin/css/style.css') }}">
-    <link rel="stylesheet" href="{!! url('/themes/admin/css/my-style.css') !!}">--}}
 
     @yield('css')
 
@@ -100,7 +99,7 @@
 
 <script src="{{url('/themes/admin/lib/jquery-ui/jquery-ui.js')}}"></script>
 <script src="{{url('/themes/admin/lib/bootstrap/js/bootstrap.js')}}"></script>
-{{--<script src="{{url('/themes/admin/lib/jquery-toggles/toggles.js')}}"></script>--}}
+<script src="{{url('/themes/admin/lib/jquery-toggles/toggles.js')}}"></script>
 <script src="{{url('/themes/admin/lib/datatables/jquery.dataTables.js')}}"></script>
 {{--<script src="{{url('/themes/js/momentjs/moment.min.js')}}"></script>--}}
 <script src="{{url('/themes/admin/lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js')}}"></script>
