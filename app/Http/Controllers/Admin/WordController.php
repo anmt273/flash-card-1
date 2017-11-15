@@ -27,8 +27,13 @@ class WordController extends AdminBaseController
     public function add(Request $request){
         if($request->has('lesson_id')){
             $lesson_id = $request->get('lesson_id');
+            $lesson = Lesson::find($lesson_id);
+            if(!$lesson){
+                dflash('Khong tim thay bai hoc!!!','danger');
+                return back();
+            }
             if($request->isMethod('GET')){
-                return $this->render('admin.words.add',['lesson_id' => $lesson_id]);
+                return $this->render('admin.words.add',['lesson' => $lesson]);
             }
             else {
                 $word = new Word();
@@ -65,8 +70,9 @@ class WordController extends AdminBaseController
             return back();
         }
         else{
+            $lesson  = $word->lesson;
             if($request->isMethod('GET')){
-                return $this->render('admin.word.edit',['word' => $word]);
+                return $this->render('admin.words.edit',['word' => $word, 'lesson' => $lesson]);
             }
             else {
                 $word->lesson_id = $request->get('lesson_id');
@@ -82,9 +88,23 @@ class WordController extends AdminBaseController
                 $word->save();
 
                 dflash('Sửa bài học thành công!', 'success');
-                return back()->with('lesson_id_old',$request->get('lesson_id'));
+                return redirect()->route('admin.lesson.list',['lesson_old_id' => $word->lesson_id, 'course_id' => $word->lesson->course->id]);
             }
         }
 
+    }
+
+    public function delete(Request $request){
+        $id = $request->get('id');
+        $word = Word::find($id);
+        if (!$word){
+            dflash('Khong tim thay tu!!!','warning');
+            return back();
+        }
+        else{
+            $word->delete();
+            dflash('Xoa tu thanh cong!!!','success');
+            return back();
+        }
     }
 }

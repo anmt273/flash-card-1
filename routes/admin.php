@@ -90,7 +90,7 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
         Route::group(['prefix' => 'word'],function (){
             Route::any('/add','WordController@add')->name('admin.word.add');
             Route::any('/edit','WordController@edit')->name('admin.word.edit');
-            Route::post('/delete','WordController@delete')->name('admin.word.delete');
+            Route::get('/delete','WordController@delete')->name('admin.word.delete');
         });
 
     });

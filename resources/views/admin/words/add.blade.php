@@ -3,7 +3,7 @@
     <div class="col-sm-6">
         <div class="panel">
             <div class="panel-heading">
-                <h4 class="panel-title">{{__('Add Word')}}</h4>
+                <h4 class="panel-title">{{$lesson->name}}</h4>
             </div>
             <div class="panel-body">
                 <form method="post" action="{{route('admin.word.add')}}" enctype="multipart/form-data">
@@ -40,7 +40,7 @@
                             <input type="text" name="audio" class="form-control" placeholder="Chon audio" disabled>
                         </div>
                     </div>
-                    <input type="text" name="lesson_id" value="{{$lesson_id}}" hidden>
+                    <input type="text" name="lesson_id" value="{{$lesson->id}}" hidden>
                     <div class="form-group" style="padding-left: 10px">
                         <button type="submit" class="btn btn-success">Add</button>
                     </div>

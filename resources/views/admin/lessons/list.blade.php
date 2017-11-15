@@ -137,11 +137,11 @@
             <td class="td_optional">
                 <ul class="table-options">
                     <li>
-                        <a href="{{--{{route('admin.lesson.edit', ['id' => $word->id])}}--}}"><i
+                        <a href=""><i
                                     class="fa fa-pencil"></i></a>
                     </li>
                     <li>
-                        <a href="{{--{{route('admin.lesson.delete', ['id' => $word->id])}}--}}"
+                        <a href="{{route('admin.lesson.delete')}}"
                            onclick="return confirmDelete()"><i
                                     class="fa fa-trash fa-delete"></i></a>
                     </li>
@@ -154,8 +154,8 @@
         .tb_word_clone{
             display: none;
         }
-        table.tb_lessons tbody tr.active{
-            background-color: #e7e9ee;
+        table.tb_lessons tbody tr.active td{
+            background-color: #D3DCE3;
         }
     </style>
 @endsection
@@ -174,6 +174,8 @@
             }
             //Load word
             function bind_word(lesson_id, course_name, page) {
+                var url_edit_word = "{{route('admin.word.edit')}}";
+                var url_delete_word = "{{route('admin.word.delete')}}";
                 $.ajax({
                     url : "{{route('admin.word.ajax-get-words')}}" + "?page=" + page,
                     type : "get",
@@ -191,10 +193,12 @@
                             item.find('td.td_index').text(i+1);
                             item.find('td.td_word').text(data[i].word);
                             item.find('td.td_lesson').text(course_name);
+                            item.find('td.td_mean').text(data[i].mean);
                             item.find('td.td_phonetic').text(data[i].phonetic);
                             item.find('td.td_img').text(data[i].img);
                             item.find('td.td_updated_at').text(data[i].updated_at);
-                            /*console.log(item.html());*/
+                            item.find('td.td_optional ul li:nth-child(1) a').attr('href',url_edit_word + '?id=' + data[i].id);
+                            item.find('td.td_optional ul li:nth-child(2) a').attr('href',url_delete_word + '?id=' + data[i].id);
                             $('.tb_words tbody').append(item.find('tr'));
                         }
                     },
