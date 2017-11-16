@@ -2,17 +2,28 @@
 @section('content')
 <section>
 	<div  class ="container-flashcard">
-		<div id="controls"> controls</div>
+		<div id="controls"> 
+			<div class="row">
+				<a href="#">Detail</a>
+			</div>
+			<div class="row">
+				<a href="#">Game</a>
+			</div>
+			<div class="row">
+				<a href="#">Report</a>
+			</div>
+		</div>
 		<div id="flashcard">
 			<div class="container">	
 			<div class="flash-card">
   				<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
 					<div class="flipper">
 						<div class="front">
-							abc abc
+							{{$card->word}}
 						</div>
 						<div class="back">
-							xyz
+							<div class="row">[{{$card->phonetic}}]</div>
+							<div class="row">{{$card->mean}}</div>
 						</div>
 					</div>
 				</div>

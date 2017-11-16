@@ -19,8 +19,8 @@ Route::get('course',[
 	'uses'=>'CourseController@getCourse'
 	]);
 Route::get('lesson/{id}', 'LessonController@getLesson')->name('lesson');
-Route::get('words/{id}', 'LessonController@getWord')->name('getword');
-Route::get('flashcard', 'FlashcardController@getFlashcard');
+Route::get('words/{id}', 'WordController@getWord')->name('getword');
+Route::get('flashcard/{id}', 'FlashcardController@getFlashcard')->name('start');
 
 //Route::get('lesson/{id}','LessonController@getWord')->name('getword');
 Route::get('card/{id}','CardController@getCard')->name('getCard');

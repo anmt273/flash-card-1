@@ -10,12 +10,12 @@
 			</form>
    		</div>
          @foreach($lesson as $lesson)
-   		<div class="item-lesson" href="{{route('getword',$lesson->id)}}">
+   		<div class="item-lesson" >
    			<div >
    				<img>
    			</div> 
    			<div class="item-lesson-name">
-				{{$lesson->name}}			
+				  <a href="{{route('getword',$lesson->id)}}">{{$lesson->name}}</a>			
    			</div>
    			<div class="item-lesson-quantity">
    			{{$lesson->word_quantity}} words
@@ -23,19 +23,6 @@
    		</div>
          @endforeach
    </div>   
-   <div id="word_list" class="auto">
-   		<button href="#" class="button_start" >STASRT</button>
-         @if(Session::has('getword'))
-         @foreach($words as $word)
-   		    <div class="item-word">
-   		    	<div class="row">{{$word->word}}</div>
-   		    	<div class="row">{{$word->phonetic}}</div>
-   		    	<div class="row">{{$word->mean}}</div>
-   		    </div>
-         @endforeach
-         @endif
-         
-   </div> 
    	<!-------------------------------endList---------------------------------->
    <div class="clear"></div>
 </div>

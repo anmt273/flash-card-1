@@ -25,9 +25,9 @@
 				</div>
 		</div>
 		
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
+		<div>
+			<div >
+				<div class="row-footer">
 					<p>Kaopiz Company</p>
 					<p>Address: 5F,CT1-CT14 Bac Ha bld, To Huu str, Nam Tu Liem dist, Hanois</p>
 					<p>Tel: (+84)989368729</p>
