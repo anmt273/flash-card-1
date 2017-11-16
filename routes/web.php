@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('course',[
+	'as'=>'trang-chu',
+	'uses'=>'CourseController@getCourse'
+	]);
+Route::get('lesson/{id}', 'LessonController@getLesson')->name('lesson');
+Route::get('words/{id}', 'LessonController@getWord')->name('getword');
+Route::get('flashcard', 'FlashcardController@getFlashcard');
+
+//Route::get('lesson/{id}','LessonController@getWord')->name('getword');
+Route::get('card/{id}','CardController@getCard')->name('getCard');
+Route::post('card/{id}','CardController@flipcard')->name('flip');
+

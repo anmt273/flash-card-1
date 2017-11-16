@@ -13,7 +13,7 @@ class Lesson extends Model
     public function word(){
     	return $this->hasMany('App\Word','lesson_id','id');
     }
-    public funtion rememberword(){
+    public function rememberword(){
         return $this->hasMany('App\RememberWord','lesson_id','id');
     }
     
