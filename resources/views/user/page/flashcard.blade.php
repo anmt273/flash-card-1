@@ -36,7 +36,7 @@
 					<button class="fa fa-pencil"></button>
 				</div>
 				<div class="flash-card-under">
-					<form action="{{route('remeber',$card->id)}}" method="post">
+					<form action="#" method="post">
 					<input type="hidden" name="_token" value="{{csrf_token()}}">
 					<div class="remember-container">
 					<button id ="remeber" class="fa fa-tags" type="submit"> Remebered</button>
