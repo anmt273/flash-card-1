@@ -15,7 +15,7 @@ class CreateWordsTable extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_lesson',30);
+            $table->integer('lesson_id')->unsigned();
             $table->string('word',30);
             $table->string('mean',100);
             $table->string('example',500);
@@ -24,6 +24,8 @@ class CreateWordsTable extends Migration
             $table->string('desc',500);
             $table->string('img',50);
             $table->timestamps();
+
+            $table->foreign('lesson_id')->references('id')->on('courses');
         });
     }
 

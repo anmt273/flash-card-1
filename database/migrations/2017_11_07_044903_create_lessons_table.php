@@ -17,11 +17,13 @@ class CreateLessonsTable extends Migration
             $table->increments('id');
             $table->string('slug',50);
             $table->string('name',50);
-            $table->string('course_id',30);
+            $table->integer('course_id')->unsigned();
             $table->string('desc',500);
             $table->string('img',50);
             $table->integer('word_quantity')->default(0);
             $table->timestamps();
+
+            $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 Route::get('course',[
 	'as'=>'trang-chu',
 	'uses'=>'CourseController@getCourse'
@@ -30,3 +29,16 @@ Route::get('contact','ContactController@getContact')->name('contact');
 Route::get('createcourse','CourseController@getCreateCourse');
 Route::post('course','CourseController@postCourse')->name('createcourse');
 
+Route::group(['namespace' => 'Web'], function(){
+   Route::get('/', 'HomeController@index')->name('home');
+});
+
+/*BackgroupController - Cloner*/
+Route::group(['prefix' => 'background'],function (){
+    //cloner
+    Route::group(['prefix' => 'cloner'],function (){
+        Route::get('/courses','BackgroundController@cloneCourses');
+        Route::get('/lessons','BackgroundController@cloneLessons');
+        Route::get('/words','BackgroundController@cloneWords');
+    });
+});
