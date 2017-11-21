@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Word;
+use App\Lesson;
+use Illuminate\Support\Facades\Session;
 
 class CardController extends Controller
 {
@@ -13,14 +15,14 @@ class CardController extends Controller
     	return view('user.page.flashcard',compact('card',$card));
 
     }
-    /*public function flipcard($current){
-    	if ($this->current == 0){
-    		$this->current ++;
-    	}
-    	else{
-  			$this->current =0;
-    	}
-    	return view('user.page.flashcard',compact('current',$current)); 
-*/
+    public function getNext($id){
+        $card = Word::find('id',$id);
+        $card1 = Word::find('id',$id+1);
+        if (($card1 == NULL)&&($card1->lesson_id != $card->lesson_id))
+            return redirect()->back()->with('het_tu','No Words');
+        else {
+            return view('user.page.flashcard',compact('card',$card1));
+        }
     }
+    
 }

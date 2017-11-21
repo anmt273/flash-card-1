@@ -1,12 +1,46 @@
 @extends('user.layout.master')
+@section('title')
+<title>Course|Flash-Card</title>
+@endsection
 @section('content')
 	<section>
 			<div class="container"
 				<div class="row">
 					<div class="create_course">
-						<button >
-							<a href="#" class="fa fa-plus">  Create Course</a>
-						</button>
+							<a class="create-window button" href="#create-box">Create Course</a>
+							<div class="create" id="create-box">Create Course
+ 
+ 							<a class="close" href="#">
+ 								<img class="img-close" title="Close Window" alt="Close" src="close.png" />
+ 							</a>
+ 							@if(count($errors)>0)
+                        		@foreach($errors->all() as $err)
+                            		<div class="alert alert-warning text-center" role="alert">{{$err}}</div>
+                        		@endforeach
+                    		@endif
+                    		@if(Session::has('thanh_cong'))
+                        		<div class="alert alert-warning text-center" role="alert"> {{Session::get('thanh_cong')}}</div>
+                    		@endif
+							<form class="create-content" action="{{route('createcourse')}}" method="post">
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<label class="username">
+ 								<span>Course's Name</span>
+ 								<input id="username" type="text" autocomplete="on" name="name" placeholder="Coursename" />
+ 								</label>
+ 								<label class="describe">
+ 								<span>Describe</span>
+ 								<input id="describe" type="text" name="describe" placeholder="Describe" />
+ 								</label>
+ 								<label>
+ 									<select name="share">
+ 										<option value="yes">Share</option>
+ 										<option value="no">No share</option>
+ 									</select>
+ 								</label>
+ 								<button class="button submit-button" type="submit">Create</button>
+ 								<script type="text/javascript" src="{{asset('http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/query.min.js')}}"></script>
+ 							</form>
+ 							</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="left-sidebar">
@@ -76,6 +110,7 @@
 							<!--<h2 class="title text-center">JAPANESE(0)</h2> -->
 							<div>
 								@foreach($course as $course)
+								@if ($course->share ==1)
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -95,6 +130,7 @@
 										
 									</div>
 								</div>
+								@endif
 								@endforeach
 								<!--
 								<div class="col-sm-4">

@@ -21,7 +21,8 @@ class CreateCoursesTable extends Migration
             $table->integer('lesson_quantity')->default(0);
             $table->integr('word_quantity')->default(0);
             $table->integer('view_quantity')->default(0);
-            $table->boolean('share');
+            $table->boolean('share')->default(fall);
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

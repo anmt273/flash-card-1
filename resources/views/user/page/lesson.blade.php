@@ -1,4 +1,7 @@
 @extends('user.layout.master')
+@section('title')
+<title>LessonFlash-Card</title>
+@endsection
 @section('content')
 <section>
 <div id="containerlesson" class="container">

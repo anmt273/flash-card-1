@@ -1,8 +1,12 @@
 @extends('user.layout.master')
+@section('title')
+<title>Card|Flash-Card</title>
+@endsection
 @section('content')
 <section>
 	<div  class ="container-flashcard">
 		<div id="controls"> 
+			<h2 style="text-align: center;">Control</h2>
 			<div class="row">
 				<a href="#">Detail</a>
 			</div>
@@ -32,12 +36,26 @@
 					<button class="fa fa-pencil"></button>
 				</div>
 				<div class="flash-card-under">
-					<div class="remembered-container">
-					<a href="#" class="fa fa-tags"> Remebered</a>
+					<form action="{{route('remeber',$card->id)}}" method="post">
+					<input type="hidden" name="_token" value="{{csrf_token()}}">
+					<div class="remember-container">
+					<button id ="remeber" class="fa fa-tags" type="submit"> Remebered</button>
 					</div>
+					</form>
 					<div class="example-container">
 						<a href="#" class="fa fa-tags"> Example</a>
 					</div>
+					@if( $card->lesson_id == $card2->lesson_id)
+					<div class="undo-container">
+						<a href="{{route('start',$card2->id)}}" class="fa fa-undo"> Prev</a>
+					</div>
+					@endif
+					@if ($card->lesson_id == $card1->lesson_id)
+					<div class="next-container">
+						<a href="{{route('start',$card1->id)}}" class="fa fa-next"> Next</a>
+					</div>
+					@endif
+					
 				</div>
 
 

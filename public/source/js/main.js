@@ -28,4 +28,29 @@ $(document).ready(function(){
 		});
 	});
 });
+$(document).ready(function() {
+    $('a.create-window').click(function() {
+        //lấy giá trị thuộc tính href - chính là phần tử "#create-box"
+        var createBox = $(this).attr('href');
+ 
+        //cho hiện hộp đăng nhập trong 300ms
+        $(createBox).fadeIn(300);
+ 
+        // thêm phần tử id="over" vào sau body
+        $('body').append('<div id="over">');
+        $('#over').fadeIn(300);
+ 
+        return false;
+ });
+ 
+ // khi click đóng hộp thoại
+ $(document).on('click', "a.close, #over", function() {
+       $('#over, .create').fadeOut(300 , function() {
+           $('#over').remove();
+       });
+      return false;
+ });
+});
+
+
 
