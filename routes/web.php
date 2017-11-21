@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 Route::get('course',[
 	'as'=>'trang-chu',
 	'uses'=>'CourseController@getCourse'
@@ -26,3 +25,16 @@ Route::get('flashcard/{id}', 'FlashcardController@getFlashcard')->name('start');
 Route::get('card/{id}','CardController@getCard')->name('getCard');
 Route::post('card/{id}','CardController@flipcard')->name('flip');
 
+Route::group(['namespace' => 'Web'], function(){
+   Route::get('/', 'HomeController@index')->name('home');
+});
+
+/*BackgroupController - Cloner*/
+Route::group(['prefix' => 'background'],function (){
+    //cloner
+    Route::group(['prefix' => 'cloner'],function (){
+        Route::get('/courses','BackgroundController@cloneCourses');
+        Route::get('/lessons','BackgroundController@cloneLessons');
+        Route::get('/words','BackgroundController@cloneWords');
+    });
+});
