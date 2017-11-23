@@ -62,9 +62,9 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="#" class="active">Home</a></li>
-								<li class="dropdown"><a href="#" >Sourse<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="{{url('course')}}" >Sourse</a>
                                 </li> 							                         
-								<li><a href="#">Contact</a></li>
+								<li><a href="{{url('contact')}}">Contact</a></li>
 							</ul>
 						</div>
 					</div>

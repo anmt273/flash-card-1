@@ -13,23 +13,23 @@
  							<a class="close" href="#">
  								<img class="img-close" title="Close Window" alt="Close" src="close.png" />
  							</a>
- 							@if(count($errors)>0)
-                        		@foreach($errors->all() as $err)
-                            		<div class="alert alert-warning text-center" role="alert">{{$err}}</div>
-                        		@endforeach
-                    		@endif
-                    		@if(Session::has('thanh_cong'))
-                        		<div class="alert alert-warning text-center" role="alert"> {{Session::get('thanh_cong')}}</div>
-                    		@endif
+ 							<!-- @if(count($errors)>0)
+ 							                        		@foreach($errors->all() as $err)
+ 							                            		<div class="alert alert-warning text-center" role="alert">{{$err}}</div>
+ 							                        		@endforeach
+ 							                    		@endif
+ 							                    		@if(Session::has('thanh_cong'))
+ 							                        		<div class="alert alert-warning text-center" role="alert"> {{Session::get('thanh_cong')}}</div>
+ 							                    		@endif -->
 							<form class="create-content" action="{{route('createcourse')}}" method="post">
 								<input type="hidden" name="_token" value="{{csrf_token()}}">
 								<label class="username">
  								<span>Course's Name</span>
- 								<input id="username" type="text" autocomplete="on" name="name" placeholder="Coursename" />
+ 								<input id="username" type="text" autocomplete="on" name="name" placeholder="Coursename" required="required" />
  								</label>
  								<label class="describe">
  								<span>Describe</span>
- 								<input id="describe" type="text" name="describe" placeholder="Describe" />
+ 								<input id="describe" type="text" name="describe" placeholder="Describe" required="required" />
  								</label>
  								<label>
  									<select name="share">

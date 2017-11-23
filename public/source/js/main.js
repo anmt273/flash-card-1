@@ -51,6 +51,9 @@ $(document).ready(function() {
       return false;
  });
 });
+$(".front").click(function(){
+  $(this).toggleClass("back");
+});
 
 
 

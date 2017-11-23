@@ -2834,7 +2834,7 @@ html {
 .next-container {
   height: 50px;
   width: 150px;
-  float: left;
+  float: right;
   padding: 10px;
   background: white;
   text-align: center;
@@ -2959,6 +2959,36 @@ a, a:visited, a:active{
     margin: 15px 75px;
     width: 150px;
 }
+.container-game{
+  height: 350px;
+  width: 400px;
+  border: 2px solid blue;
+  margin: 0 auto;//day dung de can giua
+}
+#game-input input{
+  height: 60px;
+  width: 300px;  
+  font-size: 17px;
+}
+#game-input button{
+  height: 60px;
+  width: 90px;
+  font-size: 17px;
+  float: right;
+}
+#game-word{
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  font-size: 30px;
+  color: red;
+}
+#game-under{
+  height: 60px;
+  line-height: 60px;
+  width: auto;
+}
+
 
 
 

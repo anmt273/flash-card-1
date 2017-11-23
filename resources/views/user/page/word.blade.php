@@ -7,7 +7,7 @@
 <div id="containerlesson" class="container">
  	<!--Lesson list Show -->
       <form action="{{route('start',$word1->id)}}" method="GET">
-   	<button class="button_start" >STASRT</button>
+   	<button class="button_start" type="submit">STASRT</button>
       </form>
          @foreach($words as $word)
    		    <div class="item-word">
