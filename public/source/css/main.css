@@ -2988,6 +2988,15 @@ a, a:visited, a:active{
   line-height: 60px;
   width: auto;
 }
+.create-lesson{
+  height: 600px;
+  width: 600px;
+  font-size: 18px;
+}
+.create-lesson input {
+  height: 30px;
+  width: 500px;
+}
 
 
 

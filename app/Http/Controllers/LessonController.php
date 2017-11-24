@@ -22,6 +22,14 @@ class LessonController extends Controller
     public function postCreateLesson(Request $req,$id){
     	$course = Course::find($id);
     	$lesson = new Lesson;
+    	$lesson->name = $req->name;
+    	$lesson->desc = $req->des;
+    	$lesson->img = $req->img;
+    	$lesson->course_id = $id;
+    	$course->lesson_quantity++;
+    	$lesson->save();
+    	$course->save();
+    	return redirect()->back();
 
     }
     
